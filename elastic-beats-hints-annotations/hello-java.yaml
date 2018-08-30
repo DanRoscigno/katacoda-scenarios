@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: hello-java-app
-        image: danroscigno/hello-java
+        image: danroscigno/hello-java:v1
         ports:
         - containerPort: 8080
           name: server
