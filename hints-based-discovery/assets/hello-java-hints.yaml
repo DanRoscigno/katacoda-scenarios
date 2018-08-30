@@ -9,6 +9,10 @@ spec:
   replicas: 2
   template:
     metadata:
+      annotations:
+        co.elastic.logs/multiline.pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}'
+        co.elastic.logs/multiline.negate: "true"
+        co.elastic.logs/multiline.match: after
       labels:
         app: hello-java-app
     spec:
