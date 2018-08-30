@@ -78,7 +78,7 @@ Once the external IP address is assigned you can type CTRL-C to stop watching fo
 
 ### Deploy the Spring hello world app
 
-`kubectl create -f /root/course/hello-java.yaml `{{execute HOST1}}
+`kubectl apply -f /root/course/hello-java.yaml `{{execute HOST1}}
 
 ### View in Kibana
 The logs from the hellow world app will be available at this link:
@@ -92,7 +92,7 @@ These are being processed by the default Filebeat pattern, and are similar to wh
 `kubectl apply -f /root/course/hello-java-hints.yaml `{{execute HOST1}}
 
 ### Look at the changes in Kibana
-At this point you will see that the multi-line pattern annotation has been applied and the logs look as you would like. Coming from Ops, I appreciate not having to have someone with a cluster admin role stop the agent, modify the config, and restart it.  Using these annotations puts the control of what gets collected in the hands of the application owner.
+At this point you will see that the multi-line pattern annotation has been applied and the logs look as you would like. Coming from Ops, I appreciate not having to have someone with a cluster admin role stop the agent, modify the config, and restart it.  Using these annotations puts the control of what gets collected in the hands of the application owner.  Just update the manifest and apply.
 
 ### View in Kibana
 
