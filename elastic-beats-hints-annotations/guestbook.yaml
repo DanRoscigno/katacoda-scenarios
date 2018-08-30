@@ -101,7 +101,7 @@ data:
     User www-data
     Group www-data
     HostnameLookups Off
-    ErrorLog "|$/bin/cat 1>&2"
+    ErrorLog "/proc/self/fd/2"
     LogLevel warn
 
     IncludeOptional mods-enabled/*.load
@@ -142,7 +142,7 @@ data:
     LogFormat "%{Referer}i -> %U" referer
     LogFormat "%{User-agent}i" agent
 
-    CustomLog "|/bin/cat" combined
+    CustomLog "/proc/self/fd/1" combined
 
     <FilesMatch \.php$>
         SetHandler application/x-httpd-php
@@ -234,7 +234,7 @@ kind: Deployment
 metadata:
   name: redis-slave
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       annotations:
@@ -299,7 +299,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
