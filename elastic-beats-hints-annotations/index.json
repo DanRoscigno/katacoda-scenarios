@@ -1,0 +1,38 @@
+{
+  "title": "Automated acquisition, search, and visualization of logs and metrics in a Kubernetes environment with Elasticsearch, Kibana, and Beats",
+  "description": "Collection of logs and metrics is automated using k8s annotations to provide hints to Elastic Beats.  Beats modules provide collection, parsing, and visualization configuration to the Elastic Stack",
+  "details": {
+    "steps": [
+      {
+        "title": "1. Deploy and view",
+        "text": "step01-do-it-all.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "*",
+          "target": "/root/course"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uieditorpath": "/root/course",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Guestbook", "port": 30080, "host": "host01" },
+      { "name": "Kibana", "port": 30601 }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running"
+  }
+}
