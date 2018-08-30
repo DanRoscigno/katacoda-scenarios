@@ -57,13 +57,6 @@ I added an ingress that preserves source IPs and added ConfigMaps for the Apache
 
 `kubectl create -f /root/course/guestbook.yaml `{{execute HOST1}}
 
-Verify the external IP is assigned
-
-
-`kubectl get service frontend -w`{{execute HOST1}}
-
-Once the external IP address is assigned you can type CTRL-C to stop watching for changes and get the command prompt back (the -w is "watch for changes")
-
 ### Deploy the Elastic Beats
 
 `kubectl create -f /root/course/filebeat-kubernetes.yaml `{{execute HOST1}}
