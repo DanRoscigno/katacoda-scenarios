@@ -1,5 +1,5 @@
 {
-  "title": "Automated acquisition, search, and visualization of logs and metrics in a Kubernetes environment with Elasticsearch, Kibana, and Beats",
+  "title": "Dynamic autodiscover, log & metric collection of container env with ELK",
   "description": "Collection of logs and metrics is automated using k8s annotations to provide hints to Elastic Beats.  Beats modules provide collection, parsing, and visualization configuration to the Elastic Stack",
   "details": {
     "steps": [
