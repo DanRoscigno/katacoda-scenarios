@@ -80,7 +80,7 @@ These are being processed by the default Filebeat pattern, and are similar to wh
 
 ### Update the hello-java metadata
 
-`diff -U6 /root/course/hello-java.yaml /root/course/hello-java-hints.yaml`{{execute HOST1}}
+`colordiff -U6 /root/course/hello-java.yaml /root/course/hello-java-hints.yaml`{{execute HOST1}}
 
 `kubectl apply -f /root/course/hello-java-hints.yaml `{{execute HOST1}}
 
