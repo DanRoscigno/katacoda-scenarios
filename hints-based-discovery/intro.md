@@ -7,6 +7,12 @@ This is one of the out of the box dashboards that you will see once you deploy t
 
 ![Docker Dash](https://user-images.githubusercontent.com/25182304/44353691-c2bb8c00-a475-11e8-8d0e-9578c5c8cc47.png)
 
+### This is an example of annotations to specify what Beat module to use:
+![apache2 module hint](https://user-images.githubusercontent.com/25182304/44863869-50546400-ac4c-11e8-892d-5575af08a724.png)
+
+### This is a hint for specifying multiline parsing rule for an unknown log type:
+![Spring multiline hint](https://user-images.githubusercontent.com/25182304/44863873-521e2780-ac4c-11e8-8303-12501a43f63b.png)
+
 ### Before you hit start
 This scenario depends on having Elasticsearch and Kibana available.  The instructions call for an instance of Elasticsearch Service in Elastic Cloud.  Deploy Elasticsearch Service before starting the scenario.
 
