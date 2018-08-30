@@ -103,26 +103,17 @@ List the existing deployments:
 
 `kubectl get deployments`{{execute HOST1}}
 
-NAME           DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-frontend       3         3         3            3           3m
-redis-master   1         1         1            1           3m
-redis-slave    2         2         2            2           3m
+```
+NAME                    DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+frontend                1         1         1            1           6m
+hello-java-deployment   1         1         1            1           6m
+redis-master            1         1         1            1           6m
+redis-slave             1         1         1            1           6m
+```
 
+Scale the Spring app up to two replicas:
 
-Scale the frontend down to two pods:
-
-`kubectl scale --replicas=2 deployment/frontend`{{execute HOST1}}
-
-deployment "frontend" scaled
-
-
-Check the frontend deployment:
-
-`kubectl get deployment frontend`{{execute HOST1}}
-
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-frontend   2         2         2            2           5m
-
+`kubectl scale --replicas=2 deployment/hello-java-deployment`{{execute HOST1}}
 
 ### View the changes in Kibana
 See the screenshot, add the indicated filters and then add the columns to the view.  You can see the ScalingReplicaSet entry that is marked, following from there to the top of the list of events shows the image being pulled, the volumes mounted, the pod starting, etc.
