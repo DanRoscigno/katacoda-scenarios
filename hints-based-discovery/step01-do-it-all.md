@@ -20,11 +20,11 @@ heapster is a container provided by Kubernetes to make metrics about Nodes, pods
 
 `git clone https://github.com/kubernetes/heapster.git /root/course/heapster`{{execute HOST1}}
 
-### Deploy InfluxDB
+### Deploy InfluxDB, Grafana, and heapster
 
 `kubectl create -f /root/course/heapster/deploy/kube-config/influxdb/`{{execute HOST1}}
 
-### Deploy heapster
+### Configure RBAC for heapster
 
 `kubectl create -f /root/course/heapster/deploy/kube-config/rbac/heapster-rbac.yaml`{{execute HOST1}}
 
@@ -44,6 +44,7 @@ and create it if needed (by default it will not be there)
 `git clone https://github.com/kubernetes/kube-state-metrics.git kube-state-metrics`{{execute HOST1}}
 
 `kubectl create -f kube-state-metrics/kubernetes`{{execute HOST1}}
+
 `kubectl get pods --namespace=kube-system | grep kube-state `{{execute HOST1}}
 
 
@@ -66,10 +67,32 @@ Once the external IP address is assigned you can type CTRL-C to stop watching fo
 ### Deploy the Elastic Beats
 
 `kubectl create -f /root/course/filebeat-kubernetes.yaml `{{execute HOST1}}
+
 `kubectl create -f /root/course/metricbeat-setup.yaml`{{execute HOST1}}
+
 `kubectl create -f /root/course/metricbeat-kubernetes.yaml `{{execute HOST1}}
+
 `kubectl create -f /root/course/packetbeat-kubernetes.yaml `{{execute HOST1}}
 
+`kubectl get pods -n kube-system | grep beat`{{execute HOST1}}
+
+### Deploy the Spring hello world app
+
+`kubectl create -f /root/course/hello-java.yaml `{{execute HOST1}}
+
+### View in Kibana
+The logs from the hellow world app will be available at this link:
+
+These are being processed by the default Filebeat pattern, and are similar to what you would see with fluentd or other log shippers.  Next we will add annotations to the hello-java manifest to tell Filebeat how to stitch together the multi-line logs
+
+### Update the hello-java metadata
+
+`diff /root/course/hello-java.yaml /root/course/hello-java-hints.yaml`{{execute HOST1}}
+
+`kubectl apply -f /root/course/hello-java-hints.yaml `{{execute HOST1}}
+
+### Look at the changes in Kibana
+At this point you will see that the multi-line pattern annotation has been applied and the logs look as you would like. Coming from Ops, I appreciate not having to have someone with a cluster admin role stop the agent, modify the config, and restart it.  Using these annotations puts the control of what gets collected in the hands of the application owner.
 
 ### View in Kibana
 
