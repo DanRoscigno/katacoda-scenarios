@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: hello-java-app
-        image: gcr.io/elastic-product/hello-java:v1
+        image: danroscigno/hello-java
         ports:
         - containerPort: 8080
           name: server
