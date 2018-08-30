@@ -24,13 +24,8 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-editor",
     "uieditorpath": "/root/course",
-    "showdashboard": true,
-    "dashboards": [
-      { "name": "Guestbook", "port": 30080, "host": "host01" },
-      { "name": "Kibana", "port": 30601 }
-    ]
   },
   "backend": {
     "imageid": "kubernetes-cluster-running"
