@@ -57,6 +57,7 @@
     "dashboards": [
       { "name": "NGINX", "port": 81 },
       { "name": "Kibana", "port": 5601 }
+    ]
   },
   "backend": {
     "imageid": "minikube-running"
