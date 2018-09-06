@@ -1,6 +1,6 @@
 {
-  "title": "Autodiscover, log & metric collection in k8s env with ELK",
-  "description": "Collection of logs and metrics is automated using k8s annotations to provide hints to Elastic Beats.  Beats modules provide collection, parsing, and visualization configuration to the Elastic Stack",
+  "title": "Deploy Elasticsearch, Kibana, and Filebeat in Docker containers",
+  "description": "Collection of logs and metrics is automated using Docker labels to provide hints to Elastic Beats.  Beats modules provide collection, parsing, and visualization configuration to the Elastic Stack",
   "details": {
     "steps": [
       {
@@ -52,7 +52,11 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uieditorpath": "/root/course"
+    "uieditorpath": "/root/course",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "NGINX", "port": 81 },
+      { "name": "Kibana", "port": 5601 }
   },
   "backend": {
     "imageid": "minikube-running"
