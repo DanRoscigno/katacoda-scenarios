@@ -11,6 +11,7 @@ services:
     volumes:
       - ./config/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
     #Port 9200 is available on the host. Need to for user to access as well as Packetbeat
+    networks: ['stack']
     ports: ['9200:9200']
     #Healthcheck to confirm availability of ES. Other containers wait on this.
     healthcheck:
@@ -25,6 +26,7 @@ services:
     volumes:
       - ./config/kibana/kibana.yml:/usr/share/kibana/kibana.yml
     #Port 5601 accessible on the host
+    networks: ['stack']
     ports: ['5601:5601']
     #We don't start Kibana until the ES instance is ready
     depends_on: ['elasticsearch']

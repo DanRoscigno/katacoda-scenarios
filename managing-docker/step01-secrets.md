@@ -1,5 +1,8 @@
 ### Set the credentials
+`docker-compose -f /root/course/elasticsearch-kibana-compose.yml up -d`{{execute HOST1}}
+
 `docker run -d \
+--net stack \
 --name=filebeat \
 --user=root \
 --volume="/var/lib/docker/containers:/var/lib/docker/containers:rw" \
@@ -7,9 +10,12 @@
 --volume="/var/run/docker.sock:/var/run/docker.sock:rw" \
 --detach=true docker.elastic.co/beats/filebeat:6.4.0 filebeat -e -strict.perms=false`{{execute HOST1}}
 
-`docker run -d --label co.elastic.logs/module=nginx --label co.elastic.logs/fileset.stdout=access --label co.elastic.logs/fileset.stderr=error -d -p 81:80 nginx`{{execute HOST1}}
+`docker run -d \
+--net stack \
+--label co.elastic.logs/module=nginx \
+--label co.elastic.logs/fileset.stdout=access \
+--label co.elastic.logs/fileset.stderr=error -p 81:80 nginx`{{execute HOST1}}
 
-`docker-compose -f /root/course/elasticsearch-kibana-compose.yml up -d`{{execute HOST1}}
 
 
 Set these with the values from the http://cloud.elastic.co deployment:
