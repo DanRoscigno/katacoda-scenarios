@@ -9,7 +9,7 @@
 
 `docker run -d --label co.elastic.logs/module=nginx --label co.elastic.logs/fileset.stdout=access --label co.elastic.logs/fileset.stderr=error -d -p 81:80 nginx`{{execute HOST1}}
 
-`docker-compose -f /root/course/elasticsearch-kibana-compose.yml up`{{execute HOST1}}
+`docker-compose -f /root/course/elasticsearch-kibana-compose.yml up -d`{{execute HOST1}}
 
 
 Set these with the values from the http://cloud.elastic.co deployment:
