@@ -1,10 +1,40 @@
-### Deploy Elasticsearch and Kibana
-`docker-compose -f /root/course/elasticsearch-kibana-compose.yml up -d`{{execute HOST1}}
+### create a network shared between the app and the Elastic Stack
+
+`docker network create course_stack`{{execute HOST1}}
+
+### Deploy Elasticsearch 
+
+`
+docker run -d \
+  --name=elasticsearch \
+  --env="discovery.type=single-node" \
+  --network=course_stack \
+  -p 9300:9300 -p 9200:9200 \
+  --health-cmd='curl -s -f http://localhost:9200/_cat/health' \
+  docker.elastic.co/elasticsearch/elasticsearch:6.4.0 
+`{{execute HOST1}}
 
 ### Check the health / readiness of Elasticsearch
+
+In the run command that you just ran, there is a health check defined.  This connects to the cluster health API of Elasticsearch.  In the output of the following command you will see the test result.  Wait until it returns a healthy response before deploying Kibana.
+
 `docker inspect elasticsearch | grep -A8 Health`{{execute HOST1}}
 
+### Deploy Kibana
+
+`
+docker run -d \
+  --name=kibana \
+  --user=kibana \
+  --network=course_stack -p 5601:5601 \
+  --health-cmd='curl -s -f http://localhost:5601/login' \
+  docker.elastic.co/kibana/kibana:6.4.0 
+`{{execute HOST1}}
+
 ### Check the health / readiness of Kibana
+
+In the run command that you just ran, there is a health check defined.  This connects to Kibana and ensures that it is available. In the output of the following command you will see the test result.  Wait until it returns a healthy response before deploying Beats, as the Beats need to connect to both Elasticsearch and Kibana to install the modules that customize the experience related to the apps you are running (NGINX, Apache HTTPD, etc.).
+
 `docker inspect kibana | grep -A8 Health`{{execute HOST1}}
 
 ### Start Filebeat
@@ -12,9 +42,9 @@
 --net course_stack \
 --name=filebeat \
 --user=root \
---volume="/var/lib/docker/containers:/var/lib/docker/containers:rw" \
---volume="/root/course/filebeat.yml:/usr/share/filebeat/filebeat.yml:rw" \
---volume="/var/run/docker.sock:/var/run/docker.sock:rw" \
+--volume="/var/lib/docker/containers:/var/lib/docker/containers:ro" \
+--volume="/root/course/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" \
+--volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
 --detach=true docker.elastic.co/beats/filebeat:6.4.0 filebeat -e -strict.perms=false`{{execute HOST1}}
 
 ### Start NGINX
