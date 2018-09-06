@@ -5,13 +5,12 @@ services:
   elasticsearch:
     container_name: elasticsearch
     hostname: elasticsearch
-    image: "docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}"
+    image: "docker.elastic.co/elasticsearch/elasticsearch:6.4.0"
     environment:
       - http.host=0.0.0.0
       - transport.host=127.0.0.1
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms${ES_JVM_HEAP} -Xmx${ES_JVM_HEAP}"
-    mem_limit: ${ES_MEM_LIMIT}
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
@@ -30,7 +29,7 @@ services:
   kibana:
     container_name: kibana
     hostname: kibana
-    image: "docker.elastic.co/kibana/kibana:${ELASTIC_VERSION}"
+    image: "docker.elastic.co/kibana/kibana:6.4.0"
     volumes:
       - ./config/kibana/kibana.yml:/usr/share/kibana/kibana.yml
     #Port 5601 accessible on the host
