@@ -7,17 +7,9 @@ services:
     hostname: elasticsearch
     image: "docker.elastic.co/elasticsearch/elasticsearch:6.4.0"
     environment:
-      - http.host=0.0.0.0
-      - transport.host=127.0.0.1
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+      - discovery.type=single-node
     volumes:
       - ./config/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/elasticsearch.yml
-      - esdata:/usr/share/elasticsearch/data
     #Port 9200 is available on the host. Need to for user to access as well as Packetbeat
     ports: ['9200:9200']
     #Healthcheck to confirm availability of ES. Other containers wait on this.
@@ -40,8 +32,3 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-s", "-f", "http://localhost:5601/login"]
       retries: 6
-
-volumes:
-  #Es data
-  esdata:
-    driver: local
