@@ -45,7 +45,7 @@ In the run command that you just ran, there is a health check defined.  This con
 --volume="/var/lib/docker/containers:/var/lib/docker/containers:ro" \
 --volume="/root/course/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" \
 --volume="/var/run/docker.sock:/var/run/docker.sock:ro" \
---detach=true docker.elastic.co/beats/filebeat:6.4.0 filebeat -e -strict.perms=false`{{execute HOST1}}
+docker.elastic.co/beats/filebeat:6.4.0 filebeat -e -strict.perms=false`{{execute HOST1}}
 
 ### Start NGINX
 `docker run -d \
@@ -59,7 +59,7 @@ In the run command that you just ran, there is a health check defined.  This con
 Note in the NGINX run command there are three labels, these labels are available in the Docker environment, and Filebeat detects them and configures itself.  The three labels tell Filebeat that the module name **nginx** should be used to collect, parse, and visualize the logs from this container, and that the access logs are at STDOUT, while the error logs are at STDERR.
 You can see these labels with the command:
 
-`docker inspect nginx | grep -A4 Label`{{execute HOST1}}
+`docker inspect nginx | grep -A4 Labels`{{execute HOST1}}
 
 ### Generate some traffic through NGINX
 At the top of the terminal you will see an NGINX tab.  Click on that and you will see the default NGINX page.  Add a page name to the URL, for example /foo, and this will generate a 404 error.  Now return to the Katacoda tab and click on the Kibana tab above the terminal.  Open the Dashboards and search for nginx, click on the Filebeat NGINX overview.
