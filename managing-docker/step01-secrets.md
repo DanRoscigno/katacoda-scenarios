@@ -40,6 +40,13 @@ In the run command that you just ran, there is a health check defined.  This con
 `docker inspect kibana | grep -A8 Health`{{execute HOST1}}
 
 ### Start Filebeat
+
+Before you start Filebeat, have a look at the configuration.  The hints based autodiscover feature is enabled by uncommenting a few lines of the filebeat.yml, so we will bind mount it in the Docker run command.  Use grep to see the lines that enable hints based autodiscover:
+
+`grep -A4 filebeat.autodiscover course/filebeat.yml`{{execute HOST1}}
+
+And now start Filebeat:
+
 `docker run -d \
 --net course_stack \
 --name=filebeat \
