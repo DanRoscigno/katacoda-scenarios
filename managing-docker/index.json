@@ -5,33 +5,6 @@
     "steps": [
       {
         "text": "step01-secrets.md"
-      },
-      {
-        "text": "step02-heapster.md"
-      },
-      {
-        "text": "step03-kube-state-metrics.md"
-      },
-      {
-        "text": "step04-guestbook.md"
-      },
-      {
-        "text": "step05-beats.md"
-      },
-      {
-        "text": "step06-java.md"
-      },
-      {
-        "text": "step07-hints.md"
-      },
-      {
-        "text": "step08-scale.md"
-      },
-      {
-        "text": "step09-scalingreplicaset.md"
-      },
-      {
-        "text": "step10-timeseriesvisual.md"
       }
     ],
     "intro": {
