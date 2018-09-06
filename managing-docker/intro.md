@@ -13,16 +13,6 @@ This is one of the out of the box dashboards that you will see once you deploy t
 ### This is a hint for specifying multiline parsing rule for an unknown log type:
 ![Spring multiline hint](https://user-images.githubusercontent.com/25182304/44864163-f86a2d00-ac4c-11e8-874c-ae01eae43864.png)
 
-### Before you hit start
-This scenario depends on having Elasticsearch and Kibana available.  The instructions call for an instance of Elasticsearch Service in Elastic Cloud.  Deploy Elasticsearch Service before starting the scenario.
-
-### Create an Elastic Cloud deployment
-You can use Elasticsearch Service in Elastic Cloud ( http://cloud.elastic.co ), or a local deployment, or deploy containers from https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
-
-If this is your first experience with the Elastic stack I would recommend Elastic Cloud; and don't worry, you do not need a credit card.
-
-Make sure that you take note of the CLOUD ID and Elastic Password if you use Elastic Cloud or Elastic Cloud Enterprise.
-
 ### A Quick Katacoda Primer
 If this is your first time using Katacoda, let me introduce some of the cool ideas:
 
