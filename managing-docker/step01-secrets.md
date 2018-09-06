@@ -28,5 +28,6 @@
 
 Note in the NGINX run command there are three labels, these labels are available in the Docker environment, and Filebeat detects them and configures itself.  The three labels tell Filebeat that the module name **nginx** should be used to collect, parse, and visualize the logs from this container, and that the access logs are at STDOUT, while the error logs are at STDERR.
 You can see these labels with the command:
+
 `docker inspect nginx | grep -A4 Label`{{execute HOST1}}
 
