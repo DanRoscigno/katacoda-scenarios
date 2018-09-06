@@ -34,3 +34,4 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-s", "-f", "http://localhost:5601/login"]
       retries: 6
+networks: {stack: {}}
