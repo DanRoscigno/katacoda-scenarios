@@ -33,6 +33,6 @@
     ]
   },
   "backend": {
-    "imageid": "docker-direct"
+    "imageid": "kubernetes-cluster-running"
   }
 }
