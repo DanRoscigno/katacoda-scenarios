@@ -10,6 +10,7 @@ Create a network shared between the app and the Elastic Stack:
 docker run -d \
   --name=elasticsearch \
   --env="discovery.type=single-node" \
+  --env="ES_JAVA_OPTS=-Xms256m -Xmx256m" \
   --network=course_stack \
   -p 9300:9300 -p 9200:9200 \
   --health-cmd='curl -s -f http://localhost:9200/_cat/health' \
