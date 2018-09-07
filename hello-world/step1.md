@@ -60,7 +60,7 @@ docker.elastic.co/beats/filebeat:6.4.0 filebeat -e -strict.perms=false`{{execute
 ### Start PostgreSQL
 `docker run -d \
 --net course_stack \
---label co.elastic.logs/module=postgressql \
+--label co.elastic.logs/module=postgresql \
 --name postgres \
 --env="POSTGRES_PASSWORD=mysecretpassword" \
 -p 5432:5432 postgres`{{execute HOST2}}
