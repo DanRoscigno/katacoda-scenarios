@@ -4,4 +4,6 @@ This is your first step.
 
 This is an _example_ of creating a scenario and running a **command**
 
-`echo 'Hello World'`{{execute}}
+`ssh 172.17.0.85`{{execute HOST1}}
+
+`echo 'Hello World'`{{execute HOST2}}
