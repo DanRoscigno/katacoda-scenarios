@@ -1,5 +1,5 @@
 {
-  "title": "ELK hints based autodiscover, log & metric collection in k8s",
+  "title": "ELK hints based k8s autodiscover: logs & metrics",
   "description": "hints, or annotaions, based autodiscover your k8s env and send to Elasticsearch Service in Elastic Cloud",
   "details": {
     "steps": [
