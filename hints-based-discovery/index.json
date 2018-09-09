@@ -1,6 +1,6 @@
 {
   "title": "Autodiscover, log & metric collection in k8s env with ELK",
-  "description": "Collection of logs and metrics is automated using k8s annotations to provide hints to Elastic Beats.  Beats modules provide collection, parsing, and visualization configuration to the Elastic Stack",
+  "description": "hints, or annotaions, based autodiscover your k8s env and send to Elasticsearch Service in Elastic Cloud",
   "details": {
     "steps": [
       {
