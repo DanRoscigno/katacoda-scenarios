@@ -28,7 +28,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-terminal",
     "uieditorpath": "/root/course",
     "showdashboard": true,
     "dashboards": [
