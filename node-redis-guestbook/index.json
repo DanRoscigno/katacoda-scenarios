@@ -1,0 +1,38 @@
+{
+  "title": "Elastic APM managing a Node.js app with a Redis backend",
+  "description": "foo",
+  "details": {
+    "steps": [
+      {
+        "text": "step01-secrets.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "colordiff.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "*",
+          "target": "/root/course"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uieditorpath": "/root/course",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "NGINX", "port": 81 },
+      { "name": "Kibana", "port": 5601 }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
