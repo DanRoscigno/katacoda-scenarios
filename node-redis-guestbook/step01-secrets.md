@@ -46,6 +46,7 @@ In the run command that you just ran, there is a health check defined.  This con
 docker run -d \
 --name=apm-server \
 --network=course_stack \
+-p 8200:8200 \
 docker.elastic.co/apm/apm-server:6.4.0
 `{{execute HOST2}}
 
