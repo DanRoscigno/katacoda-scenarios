@@ -18,6 +18,9 @@
       "host01": [
         {
           "file": "filebeat.yml",
+          "target": "/root/course"
+        },
+        {
           "file": "node-guestbook.tar",
           "target": "/root/course"
         }
