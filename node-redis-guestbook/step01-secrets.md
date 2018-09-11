@@ -72,11 +72,11 @@ docker run \
 ### Generate some traffic through the Guestbook
 Open the Guestbook and add some entries:
 
-- [Guestbook](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
+- [Guestbook](https://[[HOST2_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/)
 
 
 #### Explore Data
 
 If you made entries in the Guestbook earlier in the demo, you should be able to see these in the Kibana Discover app, and in the APM Dashboards. The Guestbook application relies on Redis to store data, and you will see the time it takes for each of the Redis commands related to storing and retrieving guestbook entries in the Redis cache.  Remember, we did not do anything to modify the standard Redis docker run command, the timings shown in the APM dashboard are from the perspective of the Node JS app that we instrumented.  Because this is the app that users interact with, it is crucial that we get our timings from the perespective of this app.
 
-- [APM Dashboard](https://[[HOST_SUBDOMAIN]]-5601-[[KATACODA_HOST]].environments.katacoda.com/app/apm#/guestbook/transactions)
+- [APM Dashboard](https://[[HOST2_SUBDOMAIN]]-5601-[[KATACODA_HOST]].environments.katacoda.com/app/apm#/guestbook/transactions)
