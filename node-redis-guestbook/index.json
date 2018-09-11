@@ -19,10 +19,6 @@
         {
           "file": "filebeat.yml",
           "target": "/root/course"
-        },
-        {
-          "file": "node-guestbook.tar",
-          "target": "/root/course"
         }
       ]
     }
@@ -32,7 +28,7 @@
     "uieditorpath": "/root/course",
     "showdashboard": true,
     "dashboards": [
-      { "name": "NGINX", "port": 81 },
+      { "name": "NGINX", "port": 8080 },
       { "name": "Kibana", "port": 5601 }
     ]
   },
