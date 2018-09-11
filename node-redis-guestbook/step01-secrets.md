@@ -56,6 +56,9 @@ docker.elastic.co/apm/apm-server:6.4.0
 docker run \
   --network=course_stack \
   --name redis \
+  --label=co.elastic.logs/module=redis \
+  --label=co.elastic.logs/fileset.stdout=log \
+  --label=co.elastic.metrics/module=redis \
   -d -p 6379:6379 redis
 `{{execute HOST2}}
 
