@@ -17,7 +17,8 @@
     "assets": {
       "host01": [
         {
-          "file": "*",
+          "file": "filebeat.yml",
+          "file": "node-guestbook.tar",
           "target": "/root/course"
         }
       ]
