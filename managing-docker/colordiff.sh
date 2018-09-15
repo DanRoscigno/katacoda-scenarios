@@ -1,3 +1,3 @@
 #!/bin/sh
-apt -y install colordiff
+apt -y install colordiff jq
 
