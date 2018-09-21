@@ -6,6 +6,8 @@ Create a network shared between the app and the Elastic Stack:
 
 ### Deploy Elasticsearch 
 
+This docker run command deploys a development Elasticsearch instance.  You can read more at https://www.elastic.co/guide/en/elasticsearch/reference/6.4/docker.html
+
 `
 docker run -d \
   --name=elasticsearch \
@@ -19,11 +21,13 @@ docker run -d \
 
 ### Check the health / readiness of Elasticsearch
 
-In the run command that you just ran, there is a health check defined.  This connects to the cluster health API of Elasticsearch.  In the output of the following command you will see the test result.  Wait until it returns a healthy response before deploying Kibana.
+In the run command that you just ran, there is a health check defined.  This connects to the cluster health API of Elasticsearch.  In the output of the following command you will see the test result.  Wait until it returns a healthy response before deploying Kibana.  You may have to run this command several times as it takes a minute or two to download Elasticsearch and then it takes another minute for the process to get to the ready state the first time.
 
 `docker inspect elasticsearch | grep -A8 Health`{{execute HOST1}}
 
 ### Deploy Kibana
+
+This docker run command starts Kibana with the default configuration.  If you want to customize the configuration you can pass in environment variables or mount a configuration file.  There is more information about running the official Kibana Docker container at https://www.elastic.co/guide/en/kibana/6.4/docker.html 
 
 `
 docker run -d \
@@ -73,3 +77,6 @@ You can see these labels with the command:
 
 ### Generate some traffic through NGINX
 At the top of the terminal you will see an NGINX tab.  Click on that and you will see the default NGINX page.  Add a page name to the URL, for example /foo, and this will generate a 404 error.  Now return to the Katacoda tab and click on the Kibana tab above the terminal.  Open the Dashboards and search for nginx, click on the Filebeat NGINX overview.
+
+### Interact with your data in the Kibana dashboard
+At the top of the terminal you will see a Kibana tab.  Click on that and you will see the default Kibana page. Open the **Dashboards** app in the left navigation of Kibana and search for nginx, click on the Filebeat NGINX overview.
