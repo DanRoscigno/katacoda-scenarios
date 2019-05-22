@@ -16,11 +16,11 @@ spec:
           - name: elasticsearch
             resources:
               requests:
-                memory: 512Mi
-                cpu: 300m
+                memory: 768Mi
+                cpu: 400m
               limits:
                 memory: 1000Mi
-                cpu: 300m
+                cpu: 400m
 ---
 apiVersion: kibana.k8s.elastic.co/v1alpha1
 kind: Kibana
@@ -37,11 +37,11 @@ spec:
           - name: kibana
             resources:
               requests:
-                memory: 256Mi
-                cpu: 200m
+                memory: 512Mi
+                cpu: 400m
               limits:
                 memory: 512Mi
-                cpu: 300m
+                cpu: 400m
   http:
     service:
       spec:
